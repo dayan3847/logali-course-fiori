@@ -9,7 +9,10 @@ sap.ui.define([
 
 		return Controller.extend("logaligroup.invoices.controller.MyMainView", {
 			onInit: function () {
-
+                const myJsonModel =  new sap.ui.model.json.JSONModel();
+                const myView = this.getView();
+                myJsonModel.loadData("./model/selectionScreenMenu.json");
+                myView.setModel(myJsonModel, "selectionScreen");
 			}
 		});
 	});

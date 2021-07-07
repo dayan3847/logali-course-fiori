@@ -3,13 +3,27 @@
     xmlns:mvc="sap.ui.core.mvc"
     displayBlock="true"
     xmlns="sap.m"
+    xmlns:core="sap.ui.core"
 >
 	<Shell id="shell">
 		<App id="app">
 			<pages>
 				<Page id="page" title="{i18n>title}">
 					<content>
-                        <Text text="hello world"/>
+                        <Panel headerText="{i18n>Selection Screen}">
+                            <Label id="myLabelShipName" text="{i18n>Ship Name}" labelFor="myInputShipName" class="sapUiSmallMargin"/>
+                            <Input id="myInputShipName" width="200px" class="sapUiMarginEnd" />
+                            <Label id="myLabelCountry" text="{i18n>Country}" labelFor="mySelectCountry" class="sapUiSmallMargin"/>
+                            <Select id="mySelectCountry" 
+                                    selectedKey="{selectionScreen>/CountryKey}" 
+                                    forceSelection="false" 
+                                    items="{selectionScreen>/Countries}"
+                            >
+                                <items>
+                                    <core:Item key="{selectionScreen>key}" text="{selectionScreen>text}" />
+                                </items>
+                            </Select>
+                        </Panel>
                     </content>
 				</Page>
 			</pages>
