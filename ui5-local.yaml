@@ -24,6 +24,12 @@ server:
       backend:
       - path: /sap/opu/odata
         url: http://localhost
+      ui5:
+        path: 
+        - /resources
+        - /test-resources
+        url: http://localhost/sapui5-sdk
+        version:  # The UI5 version, for instance, 1.78.1. Empty means latest version
   - name: fiori-tools-appreload
     afterMiddleware: compression
     configuration:
