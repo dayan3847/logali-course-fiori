@@ -12,17 +12,26 @@
 					<content>
                         <Panel headerText="{i18n>Selection Screen}">
                             <Label id="myLabelShipName" text="{i18n>Ship Name}" labelFor="myInputShipName" class="sapUiSmallMargin"/>
-                            <Input id="myInputShipName" width="200px" class="sapUiMarginEnd" />
+                            <Input id="myInputShipName" width="200px" class="sapUiMarginEnd" value="{selectionScreen>/ShipName}"/>
                             <Label id="myLabelCountry" text="{i18n>Country}" labelFor="mySelectCountry" class="sapUiSmallMargin"/>
                             <Select id="mySelectCountry" 
                                     selectedKey="{selectionScreen>/CountryKey}" 
                                     forceSelection="false" 
-                                    items="{selectionScreen>/Countries}"
-                            >
+                                    items="{selectionScreen>/Countries}">
                                 <items>
                                     <core:Item key="{selectionScreen>key}" text="{selectionScreen>text}" />
                                 </items>
                             </Select>
+                            <Button id="myButtonFilter"
+                                    text="{i18n>Filter}"
+                                    icon="sap-icon://filter"
+                                    press="onFilter"
+                                    class="sapUiSmallMarginEnd"/>
+                            <Button id="myButtonClearFilters"
+                                    text="{i18n>Clear Filters}"
+                                    icon="sap-icon://clear-filter"
+                                    press="onClearFilters"
+                                    class="sapUiSmallMarginEnd"/>
                         </Panel>
                     </content>
 				</Page>
