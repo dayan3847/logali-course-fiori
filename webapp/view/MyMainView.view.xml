@@ -38,7 +38,7 @@
                         </Panel>
                         <Panel>
                             <List id="invoicesList"
-                                  headerText="List"
+                                  headerText="{i18n>invoicesHeaderList}"
                                   class="sapUIResponsiveMargin"
                                   width="auto"
                                   items="{/Invoices}">
@@ -54,7 +54,6 @@
                                                     numberUnit="{selectionScreen>/Currency}"
                                                     numberState="{= ${ExtendedPrice}>100 ? 'Success' : 'Warning' }" />
                                 </items>
-
                             </List>
                         </Panel>
                     </content>
