@@ -35,7 +35,6 @@
                                     icon="sap-icon://clear-filter"
                                     press="onClearFilters"
                                     class="sapUiSmallMarginEnd"/>
-                            <Label text="{selectionScreen>/Currency}"/>
                         </Panel>
                         <Panel>
                             <List id="invoicesList"
@@ -46,15 +45,13 @@
                                 <items>
                                     <ObjectListItem title="{ShipName} - {Country}"
                                                     number="{ parts: [{path: 'ExtendedPrice'},
-                                                                      {path: 'UnitPrice'},
-                                                                      {path: 'City'},
                                                                       {path: 'selectionScreen>/Currency'}],
                                                               type: 'sap.ui.model.type.Currency',
                                                               formatOptions: {
                                                                 showMeasure : false
                                                                }
                                                             }"
-                                                    numberUnit="'{selectionScreen>/Currency'}"
+                                                    numberUnit="{selectionScreen>/Currency}"
                                                     numberState="{= ${ExtendedPrice}>100 ? 'Success' : 'Warning' }" />
                                 </items>
 
