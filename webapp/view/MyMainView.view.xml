@@ -1,25 +1,28 @@
 <mvc:View
-    controllerName="logaligroup.invoices.controller.MyMainView"
-    xmlns:mvc="sap.ui.core.mvc"
-    displayBlock="true"
-    xmlns="sap.m"
-    xmlns:core="sap.ui.core"
+        controllerName="logaligroup.invoices.controller.MyMainView"
+        xmlns:mvc="sap.ui.core.mvc"
+        displayBlock="true"
+        xmlns="sap.m"
+        xmlns:core="sap.ui.core"
 >
-	<Shell id="shell">
-		<App id="app">
-			<pages>
-				<Page id="page" title="{i18n>title}">
-					<content>
+    <Shell id="shell">
+        <App id="app">
+            <pages>
+                <Page id="page" title="{i18n>title}">
+                    <content>
                         <Panel headerText="{i18n>Selection Screen}">
-                            <Label id="myLabelShipName" text="{i18n>Ship Name}" labelFor="myInputShipName" class="sapUiSmallMargin"/>
-                            <Input id="myInputShipName" width="200px" class="sapUiMarginEnd" value="{selectionScreen>/ShipName}"/>
-                            <Label id="myLabelCountry" text="{i18n>Country}" labelFor="mySelectCountry" class="sapUiSmallMargin"/>
-                            <Select id="mySelectCountry" 
-                                    selectedKey="{selectionScreen>/CountryKey}" 
-                                    forceSelection="false" 
+                            <Label id="myLabelShipName" text="{i18n>Ship Name}" labelFor="myInputShipName"
+                                   class="sapUiSmallMargin"/>
+                            <Input id="myInputShipName" width="200px" class="sapUiMarginEnd"
+                                   value="{selectionScreen>/ShipName}"/>
+                            <Label id="myLabelCountry" text="{i18n>Country}" labelFor="mySelectCountry"
+                                   class="sapUiSmallMargin"/>
+                            <Select id="mySelectCountry"
+                                    selectedKey="{selectionScreen>/CountryKey}"
+                                    forceSelection="false"
                                     items="{selectionScreen>/Countries}">
                                 <items>
-                                    <core:Item key="{selectionScreen>key}" text="{selectionScreen>text}" />
+                                    <core:Item key="{selectionScreen>key}" text="{selectionScreen>text}"/>
                                 </items>
                             </Select>
                             <Button id="myButtonFilter"
@@ -32,10 +35,34 @@
                                     icon="sap-icon://clear-filter"
                                     press="onClearFilters"
                                     class="sapUiSmallMarginEnd"/>
+                            <Label text="{selectionScreen>/Currency}"/>
+                        </Panel>
+                        <Panel>
+                            <List id="invoicesList"
+                                  headerText="List"
+                                  class="sapUIResponsiveMargin"
+                                  width="auto"
+                                  items="{/Invoices}">
+                                <items>
+                                    <ObjectListItem title="{ShipName} - {Country}"
+                                                    number="{ parts: [{path: 'ExtendedPrice'},
+                                                                      {path: 'UnitPrice'},
+                                                                      {path: 'City'},
+                                                                      {path: 'selectionScreen>/Currency'}],
+                                                              type: 'sap.ui.model.type.Currency',
+                                                              formatOptions: {
+                                                                showMeasure : false
+                                                               }
+                                                            }"
+                                                    numberUnit="'{selectionScreen>/Currency'}"
+                                                    numberState="{= ${ExtendedPrice}>100 ? 'Success' : 'Warning' }" />
+                                </items>
+
+                            </List>
                         </Panel>
                     </content>
-				</Page>
-			</pages>
-		</App>
-	</Shell>
+                </Page>
+            </pages>
+        </App>
+    </Shell>
 </mvc:View>

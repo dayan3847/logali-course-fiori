@@ -13,6 +13,10 @@
         {
             "key": "Cuba",
             "text": "Cuba"
+        },
+        {
+            "key": "Germany",
+            "text": "Germany"
         }
     ],
     "Currency": "USD"
