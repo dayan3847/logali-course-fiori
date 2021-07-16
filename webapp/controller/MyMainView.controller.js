@@ -1,19 +1,21 @@
 sap.ui.define([
         "sap/ui/core/mvc/Controller",
         "sap/ui/model/Filter",
-        "sap/ui/model/FilterOperator"
+        "sap/ui/model/FilterOperator",
+        "sap/ui/model/json/JSONModel"
     ],
     /**
      * @param {typeof sap.ui.core.mvc.Controller} Controller
      * @param {typeof sap.ui.model.Filter} Filter
      * @param {typeof sap.ui.model.FilterOperator} FilterOperator
+     * @param {typeof sap.ui.model.json.JSONModel} JSONModel
      */
-    function (Controller, Filter, FilterOperator) {
+    function (Controller, Filter, FilterOperator, JSONModel) {
         "use strict";
 
         return Controller.extend("logaligroup.invoices.controller.MyMainView", {
             onInit: function () {
-                const myJsonModel = new sap.ui.model.json.JSONModel();
+                const myJsonModel = new JSONModel();
                 const myView = this.getView();
                 myJsonModel.loadData("./model/selectionScreenMenu.json");
                 myView.setModel(myJsonModel, "selectionScreen");
